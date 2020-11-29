@@ -1,27 +1,25 @@
 def stepwise_selection(X, y, 
                        initial_list=[], 
-                       threshold_in=0.01, 
-                       threshold_out = 0.05, 
+                       threshold_in=0.1, 
+                       threshold_out = 0.15, 
                        verbose=True):
     """ Perform a forward-backward feature selection 
     based on p-value from statsmodels.api.OLS
     Arguments:
         X - pandas.DataFrame with candidate features
         y - list-like with the target
-        initial_list - list of features to start with
-        (column names of X)
-        threshold_in - include a feature if its 
-        p-value < threshold_in
-        threshold_out - exclude a feature if its 
-        p-value > threshold_out
-        verbose - whether to print the sequence of 
-        inclusions and exclusions
+        initial_list - list of features to start with (column names of X)
+        threshold_in - include a feature if its p-value < threshold_in
+        threshold_out - exclude a feature if its p-value > threshold_out
+        verbose - whether to print the sequence of inclusions and exclusions
     Returns: list of selected features 
+    Always set threshold_in < threshold_out to avoid infinite looping.
+    See https://en.wikipedia.org/wiki/Stepwise_regression for the details
     """
     included = list(initial_list)
     while True:
         changed=False
-         # forward step
+        # forward step
         excluded = list(set(X.columns)-set(included))
         new_pval = pd.Series(index=excluded)
         for new_column in excluded:

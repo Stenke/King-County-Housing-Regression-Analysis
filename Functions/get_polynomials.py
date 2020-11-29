@@ -22,13 +22,13 @@ def get_polynomial_features(ind_train,
             scores.append((score, degree, col, df, y_pred))
             best_score = sorted(scores)[0] 
         if best_score[1] > 1:
-            print('Factor {} by {}. R^2: {}'
-                  .format(best_score[2], 
-                          best_score[1], best_score[0]))
-            plt.scatter(best_score[3], y_train, alpha = .1)
-            plt.scatter(best_score[3], best_score[4], 
-                        c='red', label=('Predicted Values'))
-            plt.legend()
-            plt.show()
+#             print('Factor {} by {}. R^2: {}'
+#                   .format(best_score[2], 
+#                           best_score[1], best_score[0]))
+#             plt.scatter(best_score[3], y_train, alpha = .1)
+#             plt.scatter(best_score[3], best_score[4], 
+#                         c='red', label=('Predicted Values'))
+#             plt.legend()
+#             plt.show()
             features.append((best_score[2], best_score[1]))
     return features 

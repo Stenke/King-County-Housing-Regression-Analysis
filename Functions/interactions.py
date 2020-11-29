@@ -24,6 +24,6 @@ def find_interactions(n, model, ind_train):
     for inter in inters:
         print('R^2 including interaction of {} and {}: {}'
               .format(inter[1], inter[2], inter[0]))
-        plot_interaction(inter[1], inter[2])
+        #plot_interaction(inter[1], inter[2])
     fin_inters = [i[1:] for i in inters]
     return fin_inters

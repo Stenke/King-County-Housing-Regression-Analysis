@@ -19,8 +19,11 @@ def add_interactions(interactions, ind_train, ind_test):
     X_best_t = ind_test.loc[:]
     scores = []
     baseline = 0
+    # Additions = True, so will run through the length of them
     while additions:
+        # Inter represents each tuple of variable pairs that we will be multiplying
         for inter in additions:
+            # Create a new column with the name of each variable in the tuple & do the actual multiplaction of these vars
             X_temp_tr[inter[0]
                       +' * '
                       +inter[1]]=(X_temp_tr.loc[:, inter[0]]
@@ -55,18 +58,10 @@ def add_interactions(interactions, ind_train, ind_test):
             t_pred = model.predict(X_best_t)
             print('Interaction Added: {} * {}'
                   .format(best[1], best[2]))
-            print('Current R^2: {}'
-                  .format(best[0]))
-            print('Current Test MSE: {}'
-                  .format(round(mse
-                                (y_test, t_pred),5)))
-            print('Current MSE Difference: {}\n'
-                  .format(round(best[0]
-                          -round(mse
-                                 (y_test, t_pred),5),5)))
         else:
             print('complete')
             break
     linreg = LinearRegression()
-    new_model = linreg.fit(X_best_tr, y_train)
+    new_model = sm.OLS(y_train, X_best_tr).fit()
+    
     return(new_model, X_best_tr, X_best_t)
