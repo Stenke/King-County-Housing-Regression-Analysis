@@ -1,7 +1,7 @@
 # Seattle-Housing-Regression-Analysis
 A predictive model for housing prices in King County, Washington using multiple regression.
 
-# Business Problem {UPDATE!}
+# Business Problem
 We are a new real estage agency, Rest, with a customer-friendly realtors paired with an online site for price prediction. Initially, we are only operating in King County. In order to both attract customers online and to help our realtors tailor specific needs to our home buyers and sellers, we need a prediction model that will accurately predict home prices after features are uploaded.
 
 Our prediction model will both help online users find out the price of their specific home or to look at potential prices of homes with certain features in specific locations.
@@ -14,6 +14,8 @@ This project uses the King County House Sales dataset, which can be found in kc_
 Additionally, you will find a cleaned data set where features are added and our final modeling data.
 
 ## Questions
+The following questions will guide our analysis and modeling as we look for opportunities for our business.
+
 1. What price range are catering towards?
 
 2. Are there specific locations where we should focus?
