@@ -28,7 +28,7 @@ The following questions will guide our analysis and modeling as we look for oppo
 ## Methods
 Data obtained from King Country housing dataset. Data was scrubbed and cleaned to remove outliers and null values. Null values were filled either with 0's or the median values depending on the situation. Additionally, we binned certain features like bathrooms to reduce inputs and transformed other features into binary columns like renovated (either yes or no instead of years renovated). We then looked at a scatter matrix to get an idea of which explanatory variables may be useful.
 
-![Scatter-Matrix](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/Scatter-Matrix.png"EDA-Scatter-Matrix")
+![Scatter-Matrix](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/Scatter-Matrix.png "EDA-Scatter-Matrix")
 
 For our various models, dummy variables were created for categorical data. We also replaced zipcodes with their respective cities in King County. In order to meet assumptions for our models, we removed outliers by limiting pricing data to 2 standard deviations (95%).
 
