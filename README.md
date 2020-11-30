@@ -32,6 +32,12 @@ Data obtained from King Country housing dataset. Data was scrubbed and cleaned t
 
 For our various models, dummy variables were created for categorical data. We also replaced zipcodes with their respective cities in King County. In order to meet assumptions for our models, we removed outliers by limiting pricing data to 2 standard deviations (95%).
 
+![Bathroom-bin-code](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/bathroom-bins.png "Bathroom-bin-code")
+
+![Bathroom-bin-plot](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/bathroom-bin.png "Bathroom-bin-plot")
+
+
+
 After assuring regression assumptions, we used Scikit-Learn and Statsmodels libraries to create a baseline model for predicting housing prices. Using train-test-split, we iterated on the model to remove collinearity, extraneous variables, and created features all while aiming for an improved R-squared value and reduced RMSE. QQ plots were used to determine normality in our models. Finally, we performed cross-validation to ensure our model meets our expecation for generalization.
 
 ## Findings
