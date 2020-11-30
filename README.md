@@ -1,4 +1,4 @@
-# Seattle-Housing-Regression-Analysis
+# King-County-Housing-Regression-Analysis
 A predictive model for housing prices in King County, Washington using multiple regression.
 
 # Business Problem
