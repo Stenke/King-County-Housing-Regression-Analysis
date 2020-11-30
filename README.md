@@ -11,6 +11,8 @@ For our initial roll-out, Rest is focusing on mid-range houses priced $200,000 t
 # The Data
 This project uses the King County House Sales dataset, which can be found in kc_house_data.csv in the data folder in this repo. The description of the column names can be found in column_names.md in the same folder.
 
+![data](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/Screen%20Shot%202020-11-29%20at%206.38.05%20PM.png "initial data")
+
 Additionally, you will find a cleaned data set where features are added and our final modeling data.
 
 ## Questions
@@ -108,5 +110,9 @@ Our final model has an Adjusted R-Squared of 0.760 meaning 76% of the variabilit
 
 ## Conclusion
 We are focusing on homes in the $200,000 - $790,000 price range initially. This is both what our model is best suited for and aligns with opportunities we see in the data. Using the most impactful variables based on coefficients, we found specific opportunities especially based on cities. After looking at additional data provided by King County, we noticed that house pricing seemed to correlate with kindergarten readiness and enrollment. We suspect this extends to other school metrics.
+
+Below is a graph of Kindergarten Readiness Scores of select school districts in King County as referenced above.
+
+![kc-kindergarten-graph](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/kindergarten-graph.png "kindergarten-readiness")
 
 With this in mind, we feel especially equipped for helping young families with well-paying jobs find their first home in Seattle and its suburbs. We found opportunities for customers who are looking for housing in a great school district for younger children that is still affordable. One example of this is Lake Washington School District, which includes the neighboring cities of Kirkland and Redmond. In our model, we see that Kirkland has a large positive coefficient, which is to be expected as it is known to be a wealthy suburb of Seattle. Right next door is Redmond that our model found a negative impact on pricing, meaning we can find affordable housing in a great school district and close access to similar ammenities. At Rest, we feel especially equipped for finding these opportunities for our young and aspiring families.
