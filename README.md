@@ -40,13 +40,13 @@ Below is a snippet of the bathroom binning code.
 
 And here is the library and code used to determine cities of King County from zipcodes.
 
-![Zipcodes](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/Screen%20Shot%202020-11-19%20at%205.24.26%20PM.png "Zipcode-to-city")
+![Zipcodes](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/zipcode-code.png "Zipcode-to-city")
 
 After assuring regression assumptions, we used Scikit-Learn and Statsmodels libraries to create a baseline model for predicting housing prices. Using train-test-split, we iterated on the model to remove collinearity, extraneous variables, and created features all while aiming for an improved R-squared value and reduced RMSE. QQ plots were used to determine normality in our models. Finally, we performed cross-validation to ensure our model meets our expecation for generalization.
 
 Here we check collinear variables seen as the tuples below.
 
-![Collinear](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/collinear.png "Collinear table)
+![Collinear](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/collinear.png "Collinear table")
 
 Additional processing code and graphs can be found in the EDA notebook.
 
@@ -55,15 +55,53 @@ Our final model process consisted of the following:
 
 1. Vanilla Model
 
+![Model1-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/vanilla-summary.png "model1-summary")
+
+![Model1-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/vanilla-rmse.png "model1-rmse")
+
+![Model1-QQ](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/vanilla-qq-plot.png "Model1-QQ")
+
+Base model R-Squared may be high from remaining spurious correlation. This would explain the large error shown by our RMSE.
+
+Additionally, the QQ plot is not normal (in the worst kind of way) with a heavy tail on the upper end. Outlier trimming to the rescue!
+
 2. Model 2: Pricing Outliers Removed
+
+![Model2-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/outliers-summary.png "model2-summary")
+
+![Model2-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/outliers-rmse.png "model2-rmse")
+
+![Model2-QQ](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/outliers-qq-plot.png "Model2-QQ")
+
+Narrowing the price range of our model reduced R-Squared but improved the accuracy by over 50%. Additionally, our QQ plot looks more normal (and cuter).
 
 3. Model 3: Scaled Explantory Variables (Min/Max)
 
+![Model3-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/scale-summary.png "model3-summary")
+
+![Model3-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/scale-rmse.png "model3-rmse")
+
 4. Model 4: Find & Add Interactions
+
+![Model4-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/interactions-summary.png "model4-summary")
+
+![Model4-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/interactions-rmse.png "model4-rmse")
 
 5. Model 5: Polynomial Variables Added
 
+![Model5-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/poly-summary.png "model5-summary")
+
+![Model5-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/poly-rmse.png "model5-rmse")
+
 6. Model 6: P-Value Filtered (Stepwise Function)
+
+![Model6-summary](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/final-summary.png "model6-summary")
+
+![Model6-rmse](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/final-rmse.png "model6-rmse")
+
+![Model6-report](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/final-report.png "model6-report")
+
+![Model6-resid-plot](https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/final-model-residuals-plot.png "model6-resid-plot")
 
 Our final model has an Adjusted R-Squared of 0.760 meaning 76% of the variability in house pricing (dependent variable) can be explained by our explantory variables in our model. Additionally, we reduced the root-mean-squared-error to 77,710, a 56.52% improvement. This means we can more accurately predict the housing price with less error on either end. The test prediction model was within 1.10% of the training model. Additionally, our cross-validated R-Squared is only 1.0% different from our training model. This is shows that the generalization of our model in the wild is promising. Of course, we'll never know until we try it!
 
