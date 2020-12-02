@@ -48,7 +48,7 @@ After assuring regression assumptions, we used Scikit-Learn and Statsmodels libr
 
 Here we check collinear variables seen as the tuples below.
 
-<img src="https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/collinearity.png" width="400" />
+<img src="https://github.com/Stenke/Seattle-Housing-Regression-Analysis/blob/main/Figures/collinearity.png" width="200" length="300" />
 
 Additional processing code and graphs can be found in the EDA notebook.
 
