@@ -21,24 +21,29 @@ def add_interactions(interactions, ind_train, ind_test):
     baseline = 0
     # Additions = True, so will run through the length of them
     while additions:
-        # Inter represents each tuple of variable pairs that we will be multiplying
+        # Inter is the list of each combo of variables found using find_interactions
         for inter in additions:
             # Create a new column with the name of each variable in the tuple & do the actual multiplaction of these vars
             X_temp_tr[inter[0]
                       +' * '
                       +inter[1]]=(X_temp_tr.loc[:, inter[0]]
                                   *X_temp_tr.loc[:, inter[1]])
+            # After creating the interaction and new column for all rows, run lin reg to test it
             linreg = LinearRegression()
             model = linreg.fit(X_temp_tr, y_train)
             y_pred = model.predict(X_temp_tr)
             score = round(r2_score(y_train, y_pred),5)
             scores.append((score, inter[0], inter[1]))
+            # Take the highest score and set to best
             best = sorted(scores, reverse=True)[0]
             X_temp_tr = X_best_tr.loc[:]
         scores = []
         if best[0] >= baseline:
+            # Remove selected best combo from list
             additions.remove(best[1:])
+            # New baseline was previous beset score
             baseline = best[0]
+            # Create interactions for train and test variables
             X_best_tr[best[1]
                       +' * '
                       +best[2]]=(X_temp_tr.loc[:, best[1]]
